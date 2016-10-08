@@ -1,18 +1,21 @@
+var app = angular.module("idleIdol", []);
 
-var cash = 0;
-var moneyMultiplier = 1;
+app.controller("idolController", function($scope) {
+	var cash = 0;
+	var moneyMultiplier = 1;
 
-var moneyOutput = document.getElementsByClassName("moneyOutput");
+	var moneyOutput = document.getElementsByClassName("moneyOutput");
 
-setInterval (update, 100);
+	setInterval (update, 100);
 
-function update () {
-    addCash (moneyMultiplier);
-}
+	function update () {
+	    addCash (moneyMultiplier);
+	}
 
-function addCash (cashToAdd) {
-    cash += cashToAdd;
-    for (var i = 0; i < moneyOutput.length; i++) {
-        moneyOutput[i].innerHTML = cash;
-    }
-}
+	function addCash (cashToAdd) {
+	    cash += cashToAdd;
+	    for (var i = 0; i < moneyOutput.length; i++) {
+	        moneyOutput[i].innerHTML = cash;
+	    }
+	}
+})
