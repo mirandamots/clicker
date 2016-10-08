@@ -22,6 +22,10 @@ app.controller("idolController", function($scope) {
 		$scope.cash -= 100;
 	}
 
+	$scope.workOvertime = function workOvertime() {
+		$scope.cash += 20;
+	}
+
 	function update () {
 	    addCash (moneyMultiplier);
 	}
@@ -29,5 +33,9 @@ app.controller("idolController", function($scope) {
 	function addCash (cashToAdd) {
 	    $scope.cash += cashToAdd;
 	    $scope.$apply();
+	}
+
+	function roundDec (number) {
+		return Math.round(number * 100) / 100;
 	}
 })
