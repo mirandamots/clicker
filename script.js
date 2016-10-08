@@ -10,8 +10,8 @@ function update () {
     addCash (moneyMultiplier);
 }
 
-function addCash (cash) {
-    cash += cash;
+function addCash (cashToAdd) {
+    cash += cashToAdd;
     for (var i = 0; i < moneyOutput.length; i++) {
         moneyOutput[i].innerHTML = cash;
     }
