@@ -9,10 +9,20 @@
 		<h1>IDLE &#9733; IDOL</h1>
 
 		<div>
-			Money: $<span class="moneyOutput">0</span>
+			Money: ${{ cash }}
 		</div>
 		<div>
 			Star Points: &#9733;<span class="starOutput">0</span>
+		</div>
+
+		<button ng-click="tossMoney()">Splurge on clothes</button>
+		<button ng-show="cash > 100" ng-click="randomIdol()">
+			Hire random idol
+		</button>
+
+		<h4>Idols</h4>
+		<div ng-repeat="idol in idols track by $index">
+			<img src="{{idol}}">
 		</div>
 	</body>
 </html>

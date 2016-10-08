@@ -1,21 +1,33 @@
 var app = angular.module("idleIdol", []);
 
 app.controller("idolController", function($scope) {
-	var cash = 0;
+	$scope.cash = 0;
+	$scope.idols = [];
+
 	var moneyMultiplier = 1;
 
-	var moneyOutput = document.getElementsByClassName("moneyOutput");
-
 	setInterval (update, 100);
+
+	$scope.tossMoney = function tossMoney() {
+		$scope.cash = 0;
+	}
+
+	$scope.randomIdol = function randomIdol() {
+		if(Math.random() > 0.5) {
+			$scope.idols.push("sponge.png");
+		} else {
+			$scope.idols.push("hategirl.png");
+		}
+
+		$scope.cash -= 100;
+	}
 
 	function update () {
 	    addCash (moneyMultiplier);
 	}
 
 	function addCash (cashToAdd) {
-	    cash += cashToAdd;
-	    for (var i = 0; i < moneyOutput.length; i++) {
-	        moneyOutput[i].innerHTML = cash;
-	    }
+	    $scope.cash += cashToAdd;
+	    $scope.$apply();
 	}
 })
