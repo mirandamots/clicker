@@ -47,7 +47,7 @@
 			<button ng-show="cash >= IDOL_COST && starPoints >= 3" ng-click="randomIdol()" ng-disabled="idols.length >= idolCapacity">
 				Hire random idol
 			</button>
-			<button ng-show="cash > 40" ng-click="industryParty()" ng-disabled="!industryPartyEnabled">Go to industry party</button>
+			<button ng-show="cash > INDUSTRY_COST" ng-click="industryParty()" ng-disabled="!industryPartyEnabled">Go to industry party</button>
 			<button ng-show="idols.length != 0" ng-click="fireIdol()">Fire an idol</button>
 		</div>
 
