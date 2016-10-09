@@ -2,6 +2,7 @@ var app = angular.module("idleIdol", []);
 
 app.controller("idolController", function($scope) {
 	$scope.DEBUG_MODE = false;
+	$scope.password = "Debug password";
 
 	OVERTIME_PAY = 20;
 	$scope.IDOL_COST = 200;
@@ -37,6 +38,10 @@ app.controller("idolController", function($scope) {
 	$scope.fireIdol = function fireIdol() {
 		rand = Math.random() * $scope.idols.length;
 		$scope.idols.splice(rand, 1);
+	}
+
+	$scope.gitGud = function gitGud() {
+		addCash(1);
 	}
 
 	$scope.workOvertime = function workOvertime() {

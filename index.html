@@ -11,14 +11,16 @@
 		Today, you're a beaten-down, beleagered 9-5 employee. But you've always dreamed of being
 		an idol manager...
 
-<!-- 		<button ng-click="DEBUG_MODE = !DEBUG_MODE">Toggle debug mode</button>
+		<div>
+			<input type="text" ng-model="password">
+		</div>
 
-		<div ng-show="DEBUG_MODE">
+		<div ng-show="password === 'jeremy sucks'">
 			<button ng-click="tonsOfCash()">Tons of cash</button>
 			<button ng-click="tonsOfPoints()">Tons of points</button>
 			<button ng-click="resetAll()">Reset everything</button>
 		</div>
- -->
+
 		<br><br>
 
 		<div>
@@ -36,6 +38,7 @@
 		<div id="money">
 			<h4>Finances</h4>
 			<button ng-click="tossMoney()">Splurge on clothes</button>
+			<button ng-click="gitGud()">Git gud</button>
 			<button ng-click="workOvertime()" ng-disabled="!workOvertimeEnabled">Work overtime</button>
 		</div>
 
