@@ -1,59 +1,59 @@
 <html>
-	<head>
-		<meta content="charset=utf-8">
-		<script src="angular.min.js"></script>
-		<script src="script.js"></script>
-	</head>
+    <head>
+        <meta content="charset=utf-8">
+        <script src="angular.min.js"></script>
+        <script src="script.js"></script>
+    </head>
 
-	<body ng-app="idleIdol" ng-controller="idolController">
-		<h1>IDLE &#9733; IDOL</h1>
+    <body ng-app="idleIdol" ng-controller="idolController">
+        <h1>IDLE &#9733; IDOL</h1>
 
-		Today, you're a beaten-down, beleagered 9-5 employee. But you've always dreamed of being
-		an idol manager...
+        Today, you're a beaten-down, beleagered 9-5 employee. But you've always dreamed of being
+        an idol manager...
 
-		<div>
-			<input type="text" ng-model="password">
-		</div>
+        <div>
+            <input type="text" ng-model="password">
+        </div>
 
-		<div ng-show="password === 'jeremy sucks'">
-			<button ng-click="tonsOfCash()">Tons of cash</button>
-			<button ng-click="tonsOfPoints()">Tons of points</button>
-			<button ng-click="resetAll()">Reset everything</button>
-		</div>
+        <div ng-show="password === 'jeremy sucks'">
+            <button ng-click="tonsOfCash()">Tons of cash</button>
+            <button ng-click="tonsOfPoints()">Tons of points</button>
+            <button ng-click="resetAll()">Reset everything</button>
+        </div>
 
-		<br><br>
+        <br><br>
 
-		<div>
-			Money: ${{ cash }}
-		</div>
+        <div>
+            Money: ${{ cash }}
+        </div>
 
-		<div>
-			Star Points: &#9733;{{ starPoints }}
-		</div>
+        <div>
+            Star Points: &#9733;{{ starPoints }}
+        </div>
 
-		<div>
-			Max Idols: {{ idolCapacity }}
-		</div>
+        <div>
+            Max Idols: {{ idolCapacity }}
+        </div>
 
-		<div id="money">
-			<h4>Finances</h4>
-			<button ng-click="tossMoney()">Splurge on clothes</button>
-			<button ng-click="gitGud()">Git gud</button>
-			<button ng-click="workOvertime()" ng-disabled="!workOvertimeEnabled">Work overtime</button>
-		</div>
+        <div id="money">
+            <h4>Finances</h4>
+            <button ng-click="tossMoney()">Splurge on clothes</button>
+            <button ng-click="gitGud()">Git gud</button>
+            <button ng-click="workOvertime()" ng-disabled="!workOvertimeEnabled">Work overtime</button>
+        </div>
 
-		<div id="management">
-			<h4>Management</h4>
-			<button ng-show="cash >= IDOL_COST && starPoints >= 3" ng-click="randomIdol()" ng-disabled="idols.length >= idolCapacity">
-				Hire random idol
-			</button>
-			<button ng-show="cash > INDUSTRY_COST" ng-click="industryParty()" ng-disabled="!industryPartyEnabled">Go to industry party</button>
-			<button ng-show="idols.length != 0" ng-click="fireIdol()">Fire an idol</button>
-		</div>
+        <div id="management">
+            <h4>Management</h4>
+            <button ng-show="cash >= IDOL_COST && starPoints >= 3" ng-click="randomIdol()" ng-disabled="idols.length >= idolCapacity">
+                Hire random idol
+            </button>
+            <button ng-show="cash >= INDUSTRY_COST" ng-click="industryParty()" ng-disabled="!industryPartyEnabled">Go to industry party</button>
+            <button ng-show="idols.length != 0" ng-click="fireIdol()">Fire an idol</button>
+        </div>
 
-		<h4>Idols</h4>
-		<span ng-repeat="idol in idols track by $index">
-			<img src="{{ idol }}"></img>
-		</span>
-	</body>
+        <h4>Idols</h4>
+        <span ng-repeat="idol in idols track by $index">
+            <img src="{{ idol }}"></img>
+        </span>
+    </body>
 </html>
