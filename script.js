@@ -28,6 +28,7 @@ app.controller("idolController", function($scope) {
     $scope.idolCapacity = 5;
 
     // Button-disabling variables
+    $scope.internshipEnabled = true;
     $scope.industryPartyEnabled = true;
     $scope.workOvertimeEnabled = true;
 
@@ -68,7 +69,16 @@ app.controller("idolController", function($scope) {
         }, 1500);
     }
 
-    // "Go to industry party" button. Subtracks $40, starts a timer, then adds 3 SP at the end of the timer.
+    // "Do an internship" button. Starts a timer, then adds 1 SP at the end of the timer.
+    // Disables "Do an internship."
+    $scope.internship = function internship() {
+        $scope.internshipEnabled = false;
+        setTimeout(function() {
+            addSP (1);
+        }, 15000);
+    }
+    
+    // "Go to industry party" button. Subtracts $40, starts a timer, then adds 3 SP at the end of the timer.
     // Disables "Go to industry party" for the duration.
     $scope.industryParty = function industryParty() {
         removeCash($scope.INDUSTRY_COST);

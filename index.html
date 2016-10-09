@@ -37,17 +37,18 @@
 
         <div id="money">
             <h4>Finances</h4>
-            <button ng-click="tossMoney()">Splurge on clothes</button>
+            <button ng-click="tossMoney()">Splurge on clothes ($&#8734;)</button>
             <button ng-click="gitGud()">Git gud</button>
             <button ng-click="workOvertime()" ng-disabled="!workOvertimeEnabled">Work overtime</button>
         </div>
 
         <div id="management">
             <h4>Management</h4>
+            <button ng-show="starPoints === 0" ng-click="internship()" ng-disabled="!internshipEnabled">Do an internship at an idol company</button>
             <button ng-show="cash >= IDOL_COST && starPoints >= 3" ng-click="randomIdol()" ng-disabled="idols.length >= idolCapacity">
-                Hire random idol
+                Hire random idol (${{ IDOL_COST }})
             </button>
-            <button ng-show="cash >= INDUSTRY_COST" ng-click="industryParty()" ng-disabled="!industryPartyEnabled">Go to industry party</button>
+            <button ng-show="cash >= INDUSTRY_COST && starPoints >= 1" ng-click="industryParty()" ng-disabled="!industryPartyEnabled">Go to industry party (${{ INDUSTRY_COST }})</button>
             <button ng-show="idols.length != 0" ng-click="fireIdol()">Fire an idol</button>
         </div>
 
