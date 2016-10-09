@@ -12,18 +12,20 @@
 			Money: ${{ cash }}
 		</div>
 		<div>
-			Star Points: &#9733;<span class="starOutput">0</span>
+			Star Points: &#9733;{{ starPoints }}
 		</div>
 
 		<button ng-click="tossMoney()">Splurge on clothes</button>
-		<button ng-click="workOvertime()">Work overtime</button>
-		<button ng-show="cash > 100" ng-click="randomIdol()">
+		<button ng-click="workOvertime()" ng-disabled="!workOvertimeEnabled">Work overtime</button>
+		<button ng-show="cash >= IDOL_COST && starPoints >= 3" ng-click="randomIdol()" ng-disabled="idols.length >= idolCapacity">
 			Hire random idol
 		</button>
+		<button ng-show="cash > 40" ng-click="industryParty()" ng-disabled="!industryPartyEnabled">Go to industry party</button>
+		<button ng-show="idols.length != 0" ng-click="fireIdol()">Fire an idol</button>
 
 		<h4>Idols</h4>
 		<span ng-repeat="idol in idols track by $index">
-			<img src="{{idol}}"></img>
+			<img src="{{ idol }}"></img>
 		</span>
 	</body>
 </html>
