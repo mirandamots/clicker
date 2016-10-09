@@ -7,7 +7,8 @@ app.controller("idolController", function($scope) {
         "img/sponge.png",
         "img/garbage.png",
         "img/hategirl.png",
-        "img/ghost.png"
+        "img/ghost.png",
+        "img/death.png"
     ]
     NUM_IDOLS = IDOL_IMAGES.length;
 
