@@ -1,22 +1,22 @@
 var app = angular.module("idleIdol", []);
 
 app.controller("idolController", function($scope) {
+	$scope.DEBUG_MODE = false;
+
 	OVERTIME_PAY = 20;
 	$scope.IDOL_COST = 200;
 
 	$scope.cash = 0;
 	$scope.starPoints = 0;
 	$scope.idols = [];
-	$scope.idolCapacity = 3;
+	$scope.idolCapacity = 5;
 
 	$scope.industryPartyEnabled = true;
 	$scope.workOvertimeEnabled = true;
 
 	var moneyMultiplier = 1;
 
-	console.log($scope.idols.length);
-
-	setInterval (update, 100);
+	setInterval (update, 500);
 
 	$scope.tossMoney = function tossMoney() {
 		$scope.cash = 0;
@@ -31,8 +31,12 @@ app.controller("idolController", function($scope) {
 		} else {
 			$scope.idols.push("hategirl.png");
 		}
-		console.log($scope.idols.length);
 		removeCash($scope.IDOL_COST);
+	}
+
+	$scope.fireIdol = function fireIdol() {
+		rand = Math.random() * $scope.idols.length;
+		$scope.idols.splice(rand, 1);
 	}
 
 	$scope.workOvertime = function workOvertime() {
@@ -49,7 +53,22 @@ app.controller("idolController", function($scope) {
 		setTimeout(function() {
 			addSP (1);
 			$scope.industryPartyEnabled = true;
-		}, 1000);
+		}, 5000);
+	}
+
+	$scope.tonsOfCash = function tonsOfCash() {
+		addCash($scope.cash);
+	}
+
+	$scope.resetAll = function resetAll() {
+		$scope.cash = 0;
+		$scope.starPoints = 0;
+		$scope.idols = [];
+	}
+
+	$scope.tonsOfPoints = function tonsOfPoints() {
+		addSP(1);
+		addSP($scope.starPoints);
 	}
 
 	function update () {

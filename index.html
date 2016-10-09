@@ -8,20 +8,45 @@
 	<body ng-app="idleIdol" ng-controller="idolController">
 		<h1>IDLE &#9733; IDOL</h1>
 
+		Today, you're a beaten-down, beleagered 9-5 employee. But you've always dreamed of being
+		an idol manager...
+
+<!-- 		<button ng-click="DEBUG_MODE = !DEBUG_MODE">Toggle debug mode</button>
+
+		<div ng-show="DEBUG_MODE">
+			<button ng-click="tonsOfCash()">Tons of cash</button>
+			<button ng-click="tonsOfPoints()">Tons of points</button>
+			<button ng-click="resetAll()">Reset everything</button>
+		</div>
+ -->
+		<br><br>
+
 		<div>
 			Money: ${{ cash }}
 		</div>
+
 		<div>
 			Star Points: &#9733;{{ starPoints }}
 		</div>
 
-		<button ng-click="tossMoney()">Splurge on clothes</button>
-		<button ng-click="workOvertime()" ng-disabled="!workOvertimeEnabled">Work overtime</button>
-		<button ng-show="cash >= IDOL_COST && starPoints >= 3" ng-click="randomIdol()" ng-disabled="idols.length >= idolCapacity">
-			Hire random idol
-		</button>
-		<button ng-show="cash > 40" ng-click="industryParty()" ng-disabled="!industryPartyEnabled">Go to industry party</button>
-		<button ng-show="idols.length != 0" ng-click="fireIdol()">Fire an idol</button>
+		<div>
+			Max Idols: {{ idolCapacity }}
+		</div>
+
+		<div id="money">
+			<h4>Finances</h4>
+			<button ng-click="tossMoney()">Splurge on clothes</button>
+			<button ng-click="workOvertime()" ng-disabled="!workOvertimeEnabled">Work overtime</button>
+		</div>
+
+		<div id="management">
+			<h4>Management</h4>
+			<button ng-show="cash >= IDOL_COST && starPoints >= 3" ng-click="randomIdol()" ng-disabled="idols.length >= idolCapacity">
+				Hire random idol
+			</button>
+			<button ng-show="cash > 40" ng-click="industryParty()" ng-disabled="!industryPartyEnabled">Go to industry party</button>
+			<button ng-show="idols.length != 0" ng-click="fireIdol()">Fire an idol</button>
+		</div>
 
 		<h4>Idols</h4>
 		<span ng-repeat="idol in idols track by $index">
