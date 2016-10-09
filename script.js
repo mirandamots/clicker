@@ -17,7 +17,7 @@ app.controller("idolController", function($scope) {
     $scope.password = "Debug password";
 
     // Costs/pay amounts
-    OVERTIME_PAY = 20;
+    $scope.OVERTIME_PAY = 20;
     $scope.IDOL_COST = 200;
     $scope.INDUSTRY_COST = 40;
 
@@ -65,7 +65,7 @@ app.controller("idolController", function($scope) {
         $scope.workOvertimeEnabled = false;
         setTimeout(function() {
             $scope.workOvertimeEnabled = true;
-            addCash(OVERTIME_PAY);
+            addCash($scope.OVERTIME_PAY);
         }, 1500);
     }
 
